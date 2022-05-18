@@ -9,6 +9,7 @@ const headers = {
 
 // eslint-disable-next-line no-unused-vars
 exports.handler = async (event, context) => {
+  
   try {
     // grab the city, state, and country from the request's query parameters
     // here is an example from the netlify docs:
@@ -22,21 +23,20 @@ exports.handler = async (event, context) => {
       `https://api.yelp.com/v3/businesses/search?location=${event.queryStringParameters.searchFilter}`,
       {
         headers: {
-          Authorization:
-            'Bearer 0pC0m3W-bivS3ZPvnzCV2xamaD8THGLXUaZAqZH7YqjTDje5YECSgcPW6NQEau26ogBMhYJd_oou8UEzLNEkaTa3mTmRAHmExa5Kk7BC1B5l1t1KjKwRF3gNjSaFYnYx',
+          Authorization: `Bearer ${process.env.YELP_KEY}`,
         },
       }
     );
-
+    
     const data = await response.json();
     // eslint-disable-next-line no-unused-vars
-    const json = JSON.stringify({ data });
+    //const json = JSON.stringify({ data });
 
     return {
       statusCode: 200,
       headers,
       // this is where you shoot data back to the user. right now it's sending an empty object--replace this with the yelp data. remember, you do need to stringify it, otherwise netlify gets mad. ¯\_(ツ)_/¯
-      body: JSON.stringify({}),
+      body: JSON.stringify({ data }),
     };
   } catch (error) {
     //console.log(error);
