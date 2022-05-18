@@ -11,3 +11,10 @@ export async function getYelp(searchFilter) {
 
   return data;
 }
+
+export async function getWeather(searchFilter) {
+  const rawResponse = await fetch(`/.netlify/functions/weather?searchFilter=${searchFilter}`);
+  const data = await rawResponse.json();
+
+  return data;
+}
