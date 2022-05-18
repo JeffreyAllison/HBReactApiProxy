@@ -20,12 +20,12 @@ exports.handler = async (event, context) => {
     // once you have gotten the lat/lon using the geocoding api, use the lat/lon to get the weather. Consult the docs below:
     // https://openweathermap.org/api/one-call-api
     const geocodingResponse = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${event.queryStringParameters.searchFilter}&appid=178ae7cc2847c2b6881261aa68ccd389`
+      `http://api.openweathermap.org/geo/1.0/direct?q=${event.queryStringParameters.searchFilter}&appid=${process.env.WEATHER_KEY}`
     );
     const geocodingData = await geocodingResponse.json();
 
     const weatherResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${geocodingData[0].lat}&lon=${geocodingData[0].lon}appid=178ae7cc2847c2b6881261aa68ccd389`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${geocodingData[0].lat}&lon=${geocodingData[0].lon}appid=${process.env.WEATHER_KEY}`
     );
 
     const weatherData = await weatherResponse.json();
