@@ -28,8 +28,8 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       headers,
       // this is where you shoot data back to the user. right now it's sending an empty object--replace this with the pokemon data. remember, you do need to stringify it, otherwise netlify gets mad. ¯\_(ツ)_/¯
-      //body: JSON.stringify({}),
-      body: json,
+      body: JSON.stringify({ data }),
+      //body: json,
     };
   } catch (error) {
     //console.log(error);
