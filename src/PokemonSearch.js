@@ -36,12 +36,34 @@ export default function PokemonSearch() {
   return (
     <section className="pokemon">
       {/* make the fetch on submit */}
-      <form>
-        Search pokemon for a city
+      <form onSubmit={handlePokemonSubmit}>
+        Search pokemon
         {/* add inputs/labels for the pokemon name, using all the things we need with react forms. Don't forget to use the value property to sync this up with the default value in react state */}
+        <input onChange={(e) => setPokemonQuery(e.target.value)} />
         <button>Get pokemon</button>
       </form>
       {/* Make a PokemonList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
+      <header className="app-header">
+        {loadingSpinner ? (
+          <LoadingSpinner />
+        ) : (
+          pokemon.map(
+            ({ pokemon, height, weight, hp, shape, type_1, type_2, ability_1, url_image }, i) => (
+              <div className="pokemon" key={pokemon + i}>
+                <h3>Name: {pokemon}</h3>
+                <p>Height: {height}</p>
+                <p>Weight: {weight}</p>
+                <p>Health: {hp}</p>
+                <p>Shape: {shape}</p>
+                <p>Type 1: {type_1}</p>
+                <p>Type 2: {type_2}</p>
+                <p>Ability 1: {ability_1}</p>
+                <img src={url_image} />
+              </div>
+            )
+          )
+        )}
+      </header>
     </section>
   );
 }
