@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+/*import { useState, useEffect } from 'react';
 import { getWeather } from './services/fetch-utils';
 import LoadingSpinner from './LoadingSpinner';
 import WeatherList from './WeatherList';
@@ -6,7 +6,7 @@ export default function WeatherSearch() {
   // you'll need to track your weather search results, the loading state, and a form field for location with a default value.
 
   const [weatherData, setWeatherData] = useState([]);
-  const [weatherDataQuery, setWeatherDataQuery] = useState('Portland');
+  const [weatherDataQuery, setWeatherDataQuery] = useState('');
   const [loadingSpinner, setLoadingSpinner] = useState(false);
 
   async function load() {
