@@ -34,17 +34,14 @@ export default function WeatherSearch() {
 
   return (
     <section className="weather">
-      {/* make the fetch on submit */}
       <form onSubmit={handleWeatherSubmit}>
         Search weather for a city
-        {/* add inputs/labels for city name, state, and country, using all the things we need with react forms. Don't forget to use the value property to sync these up with the default values in react state */}
         <input onChange={(e) => setWeatherDataQuery(e.target.value)} />
         <button>Get weather</button>
       </form>
-      {/* Make a ForecastList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
       <header className="weather">
         {loadingSpinner ? <LoadingSpinner /> : <WeatherList weatherData={weatherData} />}
       </header>
     </section>
   );
-}
+}*/
