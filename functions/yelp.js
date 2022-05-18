@@ -18,7 +18,12 @@ exports.handler = async (event, context) => {
     // https://www.yelp.com/developers/documentation/v3/business_search
     // don't forget to add the yelp API key!
 
-    const response = await fetch(`https://${event.queryStringParameters.searchFilter}`);
+    const response = await fetch(`https://api.yelp.com/v3/businesses/search?location=Little_Rock`, {
+      headers: {
+        Authorization:
+          'Bearer 0pC0m3W-bivS3ZPvnzCV2xamaD8THGLXUaZAqZH7YqjTDje5YECSgcPW6NQEau26ogBMhYJd_oou8UEzLNEkaTa3mTmRAHmExa5Kk7BC1B5l1t1KjKwRF3gNjSaFYnYx',
+      },
+    });
 
     const data = await response.json();
     // eslint-disable-next-line no-unused-vars
