@@ -54,18 +54,6 @@ section {
   height: 100%;
 }
 
-.yelp {
-  background-color: lightgreen;
-}
-
-.weather {
-  background-color: lightblue;
-}
-
-.pokemon {
-  background-color: pink;
-}
-
 section li {
   list-style: none;
 }
