@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getPokemon } from './services/fetch-utils';
 import LoadingSpinner from './LoadingSpinner';
+import PokemonList from './PokemonList';
 export default function PokemonSearch() {
   // you'll need to track your pokemon search results, the loading state, and one form field: name. For this form field, set a real initial values (like 'pikachu') so the form populates with a default value.
-
   const [pokemon, setPokemon] = useState([]);
   const [pokemonQuery, setPokemonQuery] = useState('');
   const [loadingSpinner, setLoadingSpinner] = useState(false);
@@ -47,7 +47,8 @@ export default function PokemonSearch() {
         {loadingSpinner ? (
           <LoadingSpinner />
         ) : (
-          pokemon.map(
+          <PokemonList pokemon={pokemon} />
+          /*pokemon.map(
             ({ pokemon, height, weight, hp, shape, type_1, type_2, ability_1, url_image }, i) => (
               <div className="pokemon" key={pokemon + i}>
                 <h3>Name: {pokemon}</h3>
@@ -61,7 +62,7 @@ export default function PokemonSearch() {
                 <img src={url_image} />
               </div>
             )
-          )
+          )*/
         )}
       </header>
     </section>
