@@ -22,6 +22,7 @@ exports.handler = async (event, context) => {
     );
 
     const data = await response.json();
+    // eslint-disable-next-line no-unused-vars
     const json = JSON.stringify({ data });
 
     return {
