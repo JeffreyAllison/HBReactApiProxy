@@ -6,7 +6,7 @@ export default function BusinessesList({ yelpBusinesses }) {
       {yelpBusinesses.map(({ name, image_url, price, rating }, i) => (
         <div className="yelp-businesses" key={name + rating + i}>
           <h3>Name: {name}</h3>
-          <p>Price: {price}</p>
+          <p>price: {price}</p>
           <p>rating: {rating}</p>
           <img src={image_url} />
         </div>
