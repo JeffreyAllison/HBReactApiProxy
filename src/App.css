@@ -2,7 +2,10 @@
   box-sizing: border-box;
 }
 
-.App, body, html, #root {
+.App,
+body,
+html,
+#root {
   background-color: white;
   text-align: center;
   height: 100%;
@@ -46,22 +49,9 @@
   }
 }
 
-
 section {
   width: 30%;
   height: 100%;
-}
-
-.yelp {
-  background-color: lightgreen;
-}
-
-.weather {
-  background-color: lightblue;
-}
-
-.pokemon {
-  background-color: pink;
 }
 
 section li {
@@ -70,4 +60,8 @@ section li {
 
 label {
   display: block;
+}
+
+img {
+  height: 200px;
 }
